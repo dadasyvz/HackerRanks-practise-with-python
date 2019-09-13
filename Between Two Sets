@@ -1,0 +1,22 @@
+def getTotalX(a,b):
+    new_list=[i for i in range(max(a),min(b)+1)]
+    common_list=[]
+    common_list_last=[]
+    for i in new_list:
+        for j in range(len(a)):
+            if i % a[j] != 0:
+                break
+            elif i % a[j] == 0:
+                if j == (len(a) - 1):
+                    common_list.append(i)
+
+
+    for i in common_list:
+        for j in range(len(b)):
+            if  b[j]%i != 0:
+                break
+            elif b[j]%i  == 0:
+                if j == (len(b) - 1):
+                    common_list_last.append(i)
+
+    return len(common_list_last)
