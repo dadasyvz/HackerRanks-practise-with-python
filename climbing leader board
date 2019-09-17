@@ -1,0 +1,28 @@
+def climbingLeaderboard(scores, alice):
+    scores = sorted(list(set(scores)),reverse=True)
+    liste=[]
+    t=len(scores)-1
+    for i in alice:
+        while t>=0:
+            if i>=scores[t]:
+                t-=1
+            else:
+                liste.append(t+2)
+                break
+        if t<0:
+            liste.append(1)
+
+    print(liste)
+
+
+
+scores=[100,100,50,40,40,20,10]
+alice=[5,25,50,120]
+climbingLeaderboard(scores, alice)
+
+'''
+6
+4
+2
+1
+'''
