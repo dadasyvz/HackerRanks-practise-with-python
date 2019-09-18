@@ -1,0 +1,11 @@
+arr=[2,3,6,6,5]
+n = 5
+
+new_list = []
+sort_arr = sorted(arr)
+for i in range(n):
+    if sort_arr[i] not in new_list:
+        new_list.append(sort_arr[i])
+
+sort_arr2 = sorted(sort_arr)
+print(new_list[-2])
