@@ -1,18 +1,18 @@
 def climbingLeaderboard(scores, alice):
-    scores = sorted(list(set(scores)),reverse=True)
-    liste=[]
-    t=len(scores)-1
-    for i in alice:
-        while t>=0:
-            if i>=scores[t]:
-                t-=1
-            else:
-                liste.append(t+2)
+    result = []
+    scores = list(set(scores))
+    scores.sort(reverse = True)
+    i = len(scores) - 1 
+    for alice_score in alice: 
+        while i >= 0: 
+            if alice_score >= scores[i]: 
+                i -= 1
+            else: 
+                result.append(i+2)
                 break
-        if t<0:
-            liste.append(1)
-
-    print(liste)
+        if i < 0: 
+            result.append(1) #case when alice comes first 
+    return result  
 
 
 
