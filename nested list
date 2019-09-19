@@ -1,0 +1,52 @@
+liste=[]
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        liste.append([name,score])
+
+    for i in range(len(liste)):
+        liste[i].append(liste[i][0])
+        liste[i].remove(liste[i][0])
+
+    # print(sorted(liste))
+    new_liste=sorted(liste)
+    nested_list=[]
+    j=0
+
+
+    while True:
+        if new_liste[j][0]==new_liste[j+1][0]:
+            j+=1
+            continue
+        if j+1==len(new_liste)-1:
+            nested_list.append(new_liste[j+1])
+            break
+        j+=1
+
+        while True:
+            if new_liste[j][0] != new_liste[j + 1][0]:
+                if new_liste[j] not in nested_list:
+                    nested_list.append(new_liste[j])
+
+                break
+
+            elif new_liste[j][0]==new_liste[j+1][0]:
+                if new_liste[j] not in nested_list:
+                    nested_list.append(new_liste[j])
+                if new_liste[j+1] not in nested_list:
+                    nested_list.append(new_liste[j+1])
+                if j+1<len(nested_list):
+                    j+=1
+                    continue
+                else:
+                    break
+            else:
+                break
+        break
+
+    # print(nested_list)
+    for i in range(len(nested_list)):
+        nested_list[i].append(nested_list[i][0])
+        nested_list[i].remove(nested_list[i][0])
+    for i in sorted(nested_list):
+        print(i[0])    
