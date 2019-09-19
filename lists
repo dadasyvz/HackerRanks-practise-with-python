@@ -1,0 +1,18 @@
+list=[]
+N = int(input())
+for i in range(N):
+    secim = [(x) for x in input().split(' ')]
+    if secim[0] == "insert":
+        list.insert(int(secim[1]), int(secim[2]))
+    if secim[0] == "remove":
+        list.remove(int(secim[1]))
+    if secim[0] == "append":
+        list.append(int(secim[1]))
+    if secim[0] == "sort":
+        list.sort()
+    if secim[0] == "pop":
+        list.pop()
+    if secim[0] == "reverse":
+        list.reverse()
+    if secim[0] == "print":
+        print(list)
