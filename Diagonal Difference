@@ -1,0 +1,15 @@
+def diagonalDifference(arr):
+    liste=[]
+    for i in arr:
+        for j in i:
+            liste.append(j)
+    i=0
+    j=n-1
+    total_1=0
+    total_2=0
+    while (i+n+1)<=(len(liste)+n) and (j+n-1)<=len(liste):
+        total_1+=liste[i]
+        total_2 += liste[j]
+        j += (n - 1)
+        i += (n + 1)
+    return abs(total_1 - total_2)
