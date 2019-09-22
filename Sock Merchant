@@ -1,0 +1,9 @@
+def sockMerchant(n, ar):
+    new_ar=set(ar)
+    liste=0
+    for i in new_ar:
+        sayi=ar.count(i)
+        liste+=(sayi//2)
+
+    return liste
+
