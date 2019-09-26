@@ -1,0 +1,71 @@
+def nonDivisibleSubset(k, m):
+    if len(m)<=2:
+        return 1
+    if k==1:
+        return 1
+    list_k=list(filter(lambda x:x%k==0,m))
+    for n in list_k:
+        m.remove(n)
+    s=[]
+    for i in m:
+        if i not in s:
+            s.append(i)
+    i = 0
+    j = 1
+    new_list_multiple=[]
+    while True:
+        if (s[i]+s[j])%k==0:
+            new_list_multiple.append([s[i], s[j]])
+            if j + 1 <= len(s) - 1:
+                j += 1
+                continue
+            else:
+                if i+1<=len(s)-1:
+                    i+=1
+                    if i+1<=len(s)-1:
+                        j=i+1
+                        continue
+                    else:
+                        break
+        else:
+            if j + 1 <= len(s) - 1:
+                j += 1
+                continue
+            else:
+                if i+1<=len(s)-1:
+                    i+=1
+                    if i+1<=len(s)-1:
+                        j=i+1
+                        continue
+                    else:
+                        break
+                else:
+                    break
+    print(new_list_multiple)
+    last_list_count = []
+    for ct in range(len(s)):
+        last_list = []
+        t = s.pop(0)
+        for i in s:
+            for j in s:
+                if i == j:
+                    continue
+                elif [i, j] not in new_list_multiple:
+                    for l in last_list:
+                        if (i + l) % k == 0:
+                            break
+                        elif (j + l) % k == 0:
+                            break
+                    else:
+                        if i not in last_list:
+                            last_list.append(i)
+                        if j not in last_list:
+                            last_list.append(j)
+        last_list_count.append(len(set(last_list)))
+        s.append(t)
+    if len(new_list_multiple)==0:
+        print(len(s))
+    elif len(list_k) >= 1:
+        print(max(last_list_count) + 1)
+    else:
+        print(max(last_list_count))
