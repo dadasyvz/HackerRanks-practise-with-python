@@ -1,0 +1,15 @@
+def miniMaxSum(arr):
+    total_list = []
+    for i in range(len(arr)):
+        total = 0
+        k=0
+        a=arr.pop(k)
+        for j in arr:
+            total+=j
+        total_list.append(total)
+        arr.append(a)
+    print(sorted(total_list)[0],sorted(total_list)[-1])
+
+
+arr=[1,3,5,7,9]
+miniMaxSum(arr)
