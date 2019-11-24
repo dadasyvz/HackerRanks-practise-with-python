@@ -1,0 +1,40 @@
+def solve(s):
+    new_list=[]
+    listem=""
+    i=0
+    while i<len(s):
+        if i==0 and s[i].isalpha()==True:
+            new_list.append(s[i].upper())
+            if i+1<=len(s):
+                i+=1
+                continue
+            else:
+                break
+        if s[i]==" " and s[i+1].isalpha()==True:
+            new_list.append(" ")
+            new_list.append(s[i+1].upper())
+            if i + 2 <= len(s):
+                i += 2
+                continue
+            else:
+                break
+        new_list.append(s[i])
+        if i + 1 <= len(s):
+            i += 1
+            continue
+        else:
+            break
+    for i in new_list:
+        listem+=i
+    return listem
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = solve(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
