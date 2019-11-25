@@ -1,0 +1,13 @@
+def wrap(string, max_width):
+    alex=""
+    k=1
+    for i in string:
+        if (k)%max_width==0:
+            alex+=(i+"\n")            
+            k+=1
+            continue
+        else:
+            alex+=i
+            k+=1
+
+    return alex
