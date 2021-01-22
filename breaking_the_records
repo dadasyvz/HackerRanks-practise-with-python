@@ -1,0 +1,17 @@
+def breakingRecords(scores):
+    high = [scores[0]]
+    h = 0
+    low = [scores[0]]
+    l = 0
+    for i in range(len(scores)):
+        if (i + 1) >= len(scores):
+            break
+        if scores[i + 1] > max(high):
+            h += 1
+            high.append(scores[i + 1])
+
+        if scores[i + 1] < min(low):
+            l += 1
+            low.append(scores[i + 1])
+
+    return h,l
