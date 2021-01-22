@@ -1,0 +1,20 @@
+def timeConversion(s):
+    hour = s.split(":")[0]
+    min = s.split(":")[1]
+    sec = s.split(":")[2][0:2]
+    if s.split(":")[2][2:4] == 'PM':
+        hour =int(hour)
+        if hour==12:
+            return str(hour) + ':' + min + ':' + sec
+        hour+=12
+        if hour==24:
+            return '00' + ':' + min + ':' + sec
+        else:
+            return str(hour)+':'+min+':'+sec
+
+    if s.split(":")[2][2:4] == 'AM':
+
+        if hour=="12":
+            return '00' + ':' + min + ':' + sec
+        else:
+            return hour+':'+min+':'+sec
